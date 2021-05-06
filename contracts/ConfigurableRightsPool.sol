@@ -336,21 +336,6 @@ contract ConfigurableRightsPool is PCToken, BalancerOwnable, BalancerReentrancyG
     }
 
     /**
-     * @notice Create a new Smart Pool
-     * @dev Delegates to internal function
-     * @param initialSupply starting token balance
-     */
-    function createPool(uint initialSupply)
-        external
-        onlyOwner
-        logs
-        lock
-        virtual
-    {
-        createPoolInternal(initialSupply);
-    }
-
-    /**
      * @notice Update the weight of an existing token
      * @dev Notice Balance is not an input (like with rebind on BPool) since we will require prices not to change
      *      This is achieved by forcing balances to change proportionally to weights, so that prices don't change
